@@ -112,11 +112,11 @@ export default {
     components: {
         SBGrid // 불러온 SBGrid 컴포넌트를 TotalGrid.vue에서 사용할 수 있도록 등록합니다.
     },
-    mounted: function() {
-        this.nextTick(function() { // mounted 시점에 SBGrid 컴포넌트에 메소드를 사용할 경우 nextTick 함수 안에서 코드를 작성해야 합니다.
-            // window.vl.$refs.view.$refs.grid.gridObject.getJsonRef(); // 해당 SBGrid 컴포넌트의 Json Ref 정보를 반환
-        });
-    }
+    // mounted: function() {
+    //     this.nextTick(function() { // mounted 시점에 SBGrid 컴포넌트에 메소드를 사용할 경우 nextTick 함수 안에서 코드를 작성해야 합니다.
+    //         // window.vl.$refs.view.$refs.grid.gridObject.getJsonRef(); // 해당 SBGrid 컴포넌트의 Json Ref 정보를 반환
+    //     });
+    // }
 }
 window.totalStatusChanged = function(value) { // select 요소의 option 값을 바꿨을 때 동작하는 함수입니다.
     if(value == "none") { // 선택한 옵션이 기본 상태일 경우
