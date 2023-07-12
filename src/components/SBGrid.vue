@@ -6,6 +6,7 @@
         3. :id="parentid" 해당 parentid 값은 본 컴포넌트 18번째 줄에서 생성됩니다.
             ※ 18번째 줄의 this.id는 props.id 입니다. 상위 컴포넌트에서 SBGrid 컴포넌트 속성으로 작성한 id 값 입니다.
      -->
+
     <div :id="parentid"></div>
 </template>
 <script>
@@ -22,6 +23,7 @@ export default {
     mounted: function(){
         // _SBGrid.create를 할 때에 window.가 붙는 이유는 index.html에서 SBGrid2.5 Library를 전역으로 선언하였기 때문에 해당 _SBGrid를 찾기 위해 window.을 붙이게 된 것입니다.
         this.gridObject = window._SBGrid.create({
+
             /**
              * ...this.gridattr은 SBGrid 컴포넌트 속성 설정 시, gridattr의 값을 그대로 입력해줍니다.
              * || 뒤에 { rowheader: ['seq'], explorerbar: 'sortmove'} 의 경우 gridattr 속성이 선언되지 않았을 때 기본적으로 적용될 속성들입니다.
@@ -68,6 +70,9 @@ export default {
                  */
             }
         }
+    },
+    methods:{
+
     }
 }
 </script>
