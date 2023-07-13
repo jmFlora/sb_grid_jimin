@@ -4,7 +4,7 @@
         <div class="title">합계/소계 그리드 <span style="font-size:12px; color: #aaa; font-style: italic;">정렬 상태를 수정하여 결과를 확인할 수 있습니다.</span></div>
         <span>정렬 상태설정 : </span>
 
-        <select id="totalStatus" @change="totalStatusChanged">
+        <select id="totalStatus" >
             <option value="none">기본</option>
             <option value="top">상단</option>
             <option value="bottom">하단</option>
@@ -79,8 +79,8 @@ export default {
             const gridList  = window._SBGrid.getGrid("dataGrid");
             gridList.getJsonRef(); // 해당 SBGrid 컴포넌트의 Json Ref 정보를 반환
             gridList.setMergeCells('bycol');
-            const chkRows = gridList.getCheckRows(2);
-            console.log(chkRows)
+            this.mouseMove();
+            this.checkRow();
         });
     },
     methods:{
@@ -96,50 +96,60 @@ export default {
             const gridList  = window._SBGrid.getGrid("dataGrid");
             gridList.removeRow()
         },
-        totalStatusChanged(evt) {
-            const value = evt.target.value;
-            if(value =="none"){
-                const gridList  = window._SBGrid.getGrid("dataGrid");
-                gridList.clearTotal();
-            }else{
-                let objTotal = {
-                    type        : 'subgrand', // subgrand : 소계 및 합계  / sub : 소계  / grand : 합계
-                    position    : value,  //  나타날 위치를 설정하는데 option 값으로 position이 정해짐  (top : 상단정렬 / bottom : 하단정렬)
-                    standardvaluechange : true, // 합계 행의 기준 컬럼의 데이터를 기준 데이터로 변경할지 말지 여부 설정
-                    columns     : {
-                        standard : [1,2], // 기준 컬럼 설정
-                        sum : [4,5,6,7,8,9,10,11,12,13,14,15] // 4~15번째 컬럼들은 행들의 값을 더함
-                    },
-                    subtotalrow : { // 소계 행들에 대한 설정
-                        1 : { // 117줄에 @값을 1번째 컬럼에서 찾음
-                            titlecol    : 2, // 117번째 내용이 2번째 컬럼에 나타남
-                            titlevalue  : '@ 소계', // 나타낼 소계 내용
-                            style : 'background-color: rgb(146, 178, 197); font-weight: bold; color: rgb(255, 255, 255);', // 해당 행의 스타일 설정
-                            stylestartcol   : 2 // 몇번째 컬럼부터 스타일을 입힐지 설정
-                        },
-                        2 : {
-                            titlecol    : 3,
-                            titlevalue  : '@ 소계',
-                            style : 'background-color: rgb(146, 178, 197); font-weight: bold; color: rgb(255, 255, 255);',
-                            stylestartcol   : 3
-                        }
-                    },
-                    grandtotalrow : { // 합계 행에 대한 설정
-                        titlecol    : 1, // 130번째 줄 내용이 나올 컬럼
-                        titlevalue  : '합계', // 나타낼 합계 내용
-                        style : 'background-color: rgb(146, 178, 197); font-weight: bold; color: rgb(255, 255, 255);', // 해당 행의 스타일 설정
-                        stylestartcol   : 1 // 면전째 컬럼부터 스타일을 입힐지 설정
-                    },
-                    datasorting : true // 데이터 정렬여부 설정
-                };
-                const gridList  = window._SBGrid.getGrid("dataGrid");
-                gridList.setTotal(objTotal); // 위 objTotal 객체 값으로 그리드를 Total화함.
-            }
-        },
+        // totalStatusChanged(evt) {
+        //     const value = evt.target.value;
+        //     if(value =="none"){
+        //         const gridList  = window._SBGrid.getGrid("dataGrid");
+        //         gridList.clearTotal();
+        //     }else{
+        //         let objTotal = {
+        //             type        : 'subgrand', // subgrand : 소계 및 합계  / sub : 소계  / grand : 합계
+        //             position    : value,  //  나타날 위치를 설정하는데 option 값으로 position이 정해짐  (top : 상단정렬 / bottom : 하단정렬)
+        //             standardvaluechange : true, // 합계 행의 기준 컬럼의 데이터를 기준 데이터로 변경할지 말지 여부 설정
+        //             columns     : {
+        //                 standard : [1,2], // 기준 컬럼 설정
+        //                 sum : [4,5,6,7,8,9,10,11,12,13,14,15] // 4~15번째 컬럼들은 행들의 값을 더함
+        //             },
+        //             subtotalrow : { // 소계 행들에 대한 설정
+        //                 1 : { // 117줄에 @값을 1번째 컬럼에서 찾음
+        //                     titlecol    : 2, // 117번째 내용이 2번째 컬럼에 나타남
+        //                     titlevalue  : '@ 소계', // 나타낼 소계 내용
+        //                     style : 'background-color: rgb(146, 178, 197); font-weight: bold; color: rgb(255, 255, 255);', // 해당 행의 스타일 설정
+        //                     stylestartcol   : 2 // 몇번째 컬럼부터 스타일을 입힐지 설정
+        //                 },
+        //                 2 : {
+        //                     titlecol    : 3,
+        //                     titlevalue  : '@ 소계',
+        //                     style : 'background-color: rgb(146, 178, 197); font-weight: bold; color: rgb(255, 255, 255);',
+        //                     stylestartcol   : 3
+        //                 }
+        //             },
+        //             grandtotalrow : { // 합계 행에 대한 설정
+        //                 titlecol    : 1, // 130번째 줄 내용이 나올 컬럼
+        //                 titlevalue  : '합계', // 나타낼 합계 내용
+        //                 style : 'background-color: rgb(146, 178, 197); font-weight: bold; color: rgb(255, 255, 255);', // 해당 행의 스타일 설정
+        //                 stylestartcol   : 1 // 면전째 컬럼부터 스타일을 입힐지 설정
+        //             },
+        //             datasorting : true // 데이터 정렬여부 설정
+        //         };
+        //         const gridList  = window._SBGrid.getGrid("dataGrid");
+        //         gridList.setTotal(objTotal); // 위 objTotal 객체 값으로 그리드를 Total화함.
+        //     }
+        // },
         checkRow(){
             const gridList  = window._SBGrid.getGrid("dataGrid");
-            const chkRows = gridList.getCheckRows(2);
+            const chkRows = gridList.getCheckedRows(2);
             console.log(chkRows)
+        },
+        mouseMove(){
+            const gridList  = window._SBGrid.getGrid("dataGrid");
+            console.log(gridList)
+            var nRow = gridList.getMouseRow();
+            if(nRow ==-1){
+                console.log("그리드에 마우스를 이동하여 마우스가 위치한 행을 확인해보세요.")
+            }else{
+                console.log('마우스가 위치한 행 : '+nRow)
+            }
         }
     }
 }
