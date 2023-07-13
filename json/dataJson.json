@@ -1,280 +1,175 @@
 {
-  "gridJson"
-  :[
-  {
-    "col0": "수입",
-    "col1": "매출",
-    "col2": "음식판매수입",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "610.00",
-    "col13": "650.00",
-    "col14": "150.00",
-    "col15": ""
+  "gridJson": [
+    {
+      "check": "true",
+      "divide": "FE팀",
+      "name": "전지민",
+      "phone": "010-8699-3748",
+      "birth": "1994-04-02",
+      "startDate": "2022-10-23",
+      "rank": "프로",
+      "age": "29"
+    },
+    {
+      "check": "false",
+      "divide": "FE팀",
+      "name": "박은솔",
+      "phone": "010-4200-7126",
+      "birth": "1999-06-30",
+      "startDate": "2022-02-23",
+      "rank": "프로",
+      "age": "25"
+    },
+    {
+      "check": "false",
+      "divide": "FE팀",
+      "name": "김소진",
+      "phone": "010-9258-5393",
+      "birth": "1998-10-09",
+      "startDate": "2023-02-23",
+      "rank": "프로",
+      "age": "26"
+    }
+  ],
+  "grid1columns": [
+    {
+      "caption": [
+        ""
+      ],
+      "ref": "check",
+      "width": "30px",
+      "style": "text-align:center",
+      "type": "checkbox"
+    },
+    {
+      "caption": [
+        "소속"
+      ],
+      "ref": "divide",
+      "width": "168px",
+      "style": "text-align:center",
+      "type": "combo",
+      "typeinfo": {
+        "ref":[
+          {
+            "label": "FE팀",
+            "value": "FE팀"
+          },
+          {
+            "label": "BE팀",
+            "value": "BE팀"
+          },
+          {
+            "label": "DX팀",
+            "value": "DX팀"
+          }
+        ],
+        "label": "label",
+        "value": "value"
+      }
+    },
+    {
+      "caption": [
+        "성명"
+      ],
+      "ref": "name",
+      "width": "163px",
+      "style": "text-align:center",
+      "type": "output"
+    },
+    {
+      "caption": [
+        "전화번호"
+      ],
+      "ref": "phone",
+      "width": "120px",
+      "style": "text-align:center",
+      "type": "input"
+    },
+    {
+      "caption": [
+        "직급"
+      ],
+      "ref": "rank",
+      "width": "100px",
+      "style": "text-align:center",
+      "type": "combo",
+      "typeinfo": {
+        "ref":[
+          {
+            "label": "팀장",
+            "value": "팀장"
+          },
+          {
+            "label": "파트장",
+            "value": "파트장"
+          },
+          {
+            "label": "프로",
+            "value": "프로"
+          }
+        ],
+        "label": "label",
+        "value": "value"
+      }
+    },
+    {
+      "caption": [
+        "생년월일"
+      ],
+      "ref": "birth",
+      "width": "100px",
+      "style": "text-align:center",
+      "type": "datepicker",
+      "typeinfo": {
+        "dateformat": "yy-mm-dd",
+        "displayui": "true",
+        "oneclickedit": "true"
+      }
+    },
+    {
+      "caption": [
+        "입사"
+      ],
+      "ref": "startDate",
+      "width": "100px",
+      "style": "text-align:center",
+      "type": "datepicker",
+      "typeinfo": {
+        "dateformat": "yy-mm-dd",
+        "displayui": "true",
+        "oneclickedit": "true"
+      }
+    },
+    {
+      "caption": [
+        "나이"
+      ],
+      "ref": "age",
+      "width": "100px",
+      "style": "text-align:center",
+      "type": "spinner",
+      "typeinfo": {
+        "max": 100
+      }
+    }
+  ],
 
-  },
-  {
-    "col0": "수입",
-    "col1": "매출",
-    "col2": "농산물판매수입",
-    "col3": "11000",
-    "col4": "22000",
-    "col5": "1622",
-    "col6": "12",
-    "col7": "670",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "620.00",
-    "col13": "650.00",
-    "col14": "250.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "수입",
-    "col1": "매출",
-    "col2": "농산물가공수입",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "630.00",
-    "col13": "650.00",
-    "col14": "350.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "수입",
-    "col1": "매출",
-    "col2": "음식판매수입",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "640.00",
-    "col13": "650.00",
-    "col14": "450.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "수입",
-    "col1": "매출",
-    "col2": "농산물판매수입",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "650.00",
-    "col13": "650.00",
-    "col14": "550.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "수입",
-    "col1": "매출",
-    "col2": "농산물가공수입",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "660.00",
-    "col13": "650.00",
-    "col14": "650.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "수입",
-    "col1": "매출",
-    "col2": "기타수입",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "670.00",
-    "col13": "650.00",
-    "col14": "750.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "수입",
-    "col1": "영업외수입",
-    "col2": "이자수입",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "680.00",
-    "col13": "650.00",
-    "col14": "850.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "지출",
-    "col1": "매출원가",
-    "col2": "체험재료비",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "690.00",
-    "col13": "650.00",
-    "col14": "950.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "지출",
-    "col1": "매출원가",
-    "col2": "체험인건비",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "600.00",
-    "col13": "650.00",
-    "col14": "1050.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "지출",
-    "col1": "판매관리비",
-    "col2": "급여",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "610.00",
-    "col13": "650.00",
-    "col14": "1150.00",
-    "col15": ""
-  },
-  {
-    "col0": "지출",
-    "col1": "판매관리비",
-    "col2": "보험료",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "620.00",
-    "col13": "650.00",
-    "col14": "1250.00",
-    "col15": ""
-
-  },
-  {
-    "col0": "지출",
-    "col1": "판매관리비",
-    "col2": "복리후생",
-    "col3": "10000",
-    "col4": "20000",
-    "col5": "1522",
-    "col6": "11",
-    "col7": "600",
-    "col8": "550",
-    "col9": "800",
-    "col10": "650.00",
-    "col11": "650.00",
-    "col12": "630.00",
-    "col13": "650.00",
-    "col14": "1350.00",
-    "col15": ""
-
-  }
-],
-"grid1columns": [
-{"caption": ["구분"], "ref": "col0", "width": "100px", "style" : "text-align:center", "type": "input"},
-  {"caption": ["분류"], "ref": "col1", "width": "100px", "style" : "text-align:center", "type": "input"},
-  {"caption": ["항목"], "ref": "col2", "width": "100px", "style" : "text-align:center", "type": "input"},
-{"caption" : ["1월"], "ref": "col3", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-},
-  {"caption" : ["2월"], "ref": "col4", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["3월"], "ref": "col5", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["4월"], "ref": "col6", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["5월"], "ref": "col7", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["6월"], "ref": "col8", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["7월"], "ref": "col9", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["8월"], "ref": "col10", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["9월"], "ref": "col11", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["10월"], "ref": "col12", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["11월"], "ref": "col13", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  },
-  {"caption" : ["12월"], "ref": "col14", "width": "100px", "style" : "text-align:right", "type": "input", "format": { "type": "number", "rule": "#,##0.00"}, "merge": false
-  }
-]
+  "comboData": [
+    {
+      "label": "팀장",
+      "value": "팀장"
+    },
+    {
+      "label": "파트장",
+      "value": "파트장"
+    },
+    {
+      "label": "프로",
+      "value": "프로"
+    }
+  ]
 }
+
+
+

@@ -1,8 +1,8 @@
 <template>
+
     <TotalGrid></TotalGrid>
     <div>
-        <button @click="editForm">등록</button>
-        <button @click="editForm">수정</button>
+        <button @click="editForm">{{text}}</button>
     </div>
     <insert-grid v-if="regi"></insert-grid>
     <modify-grid v-else></modify-grid>
@@ -22,8 +22,13 @@ export default {
     },
     data(){
         return{
-            regi:true
+            regi:true,
         }
+    },
+    computed:{
+      text(){
+          return this.regi ? "수정하기" : "등록하기"
+      }
     },
     methods:{
         editForm(){
@@ -38,7 +43,7 @@ export default {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    /*text-align: center;*/
     color: #2c3e50;
     margin-top: 60px;
 }

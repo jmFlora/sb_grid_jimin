@@ -49,13 +49,16 @@ export default {
                     width : '200px',
                     style : 'text-align:center',
                     type : 'input',
-                }
+                },
+
             ],
+
             /**
              * SBGrid 컴포넌트 속성 설정 중, jsonref의 값을 이 jsonref에 할당합니다.
              * 만약 SBGrid 컴포넌트 속성인 jsonref의 값을 입력하지 않으면 빈 배열로 할당됩니다.
              */
             jsonref: this.data || [],
+            mergecellsfixedrows : 'bycolrec',
         })
         if(this.bind != null) { // SBGrid 속성 설정 중, bind 라는 속성의 값이 null이 아닐 경우, 본 컴포넌트에 이벤트를 할당합니다.
             for(let i = 0 ; i < Object.keys(this.bind).length; i++){ // 할당할 이벤트의 Key의 개수만큼 for문을 돌려 SBGrid 컴포넌트에 할당합니다.

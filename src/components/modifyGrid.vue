@@ -1,73 +1,50 @@
 <template>
     <div class="modifyForm">
       <h3>수정</h3>
-    <div>
-        <label>구분</label>
-        <select v-model="divide">
-            <option value="0">구분을 입력해주세요</option>
-            <option value="수입">수입</option>
-            <option value="지출">지출</option>
-        </select>
-    </div>
-    <div>
-        <label>분류</label>
-        <input type="text" v-model="sortChk">
-    </div>
-    <div>
-        <label>항목</label>
-        <input type="text" v-model="item">
-    </div>
-    <div>
-        <label>1월</label>
-        <input type="number" v-model="jan">
-    </div>
-    <div>
-        <label>2월</label>
-        <input type="number" v-model="feb">
-    </div>
-    <div>
-        <label>3월</label>
-        <input type="number" v-model="mar">
-    </div>
-    <div>
-        <label>4월</label>
-        <input type="number" v-model="apr">
-    </div>
-    <div>
-        <label>5월</label>
-        <input type="number" v-model="may">
-    </div>
-    <div>
-        <label>6월</label>
-        <input type="number" v-model="jun">
-    </div>
-    <div>
-        <label>7월</label>
-        <input type="number" v-model="jul">
-    </div>
-    <div>
-        <label>8월</label>
-        <input type="number" v-model="aug">
-    </div>
-    <div>
-        <label>9월</label>
-        <input type="number" v-model="sep">
-    </div>
-    <div>
-        <label>10월</label>
-        <input type="number" v-model="oct">
-    </div>
-    <div>
-        <label>11월</label>
-        <input type="number" v-model="nov">
-    </div>
-    <div>
-        <label>12월</label>
-        <input type="number" v-model="dec">
-    </div>
-    <div>
-        <button @click="setModiRow">수정</button>
-    </div>
+        <div>
+            <label>소속</label>
+            <select v-model="divide">
+                <option value="0">소속을 입력해주세요</option>
+                <option value="FE팀">FE팀</option>
+                <option value="BE팀">BE팀</option>
+                <option value="DX팀">DX팀</option>
+            </select>
+        </div>
+        <div>
+            <label>성명</label>
+            <input type="text" v-model="name">
+        </div>
+        <div>
+            <label>전화번호</label>
+            <input type="text" v-model="phone">
+        </div>
+        <div>
+            <label>직급</label>
+            <select v-model="rank">
+                <option value="팀장">팀장</option>
+                <option value="파트장">파트장</option>
+                <option value="프로">프로</option>
+            </select>
+        </div>
+        <div>
+            <label>생년월일</label>
+            <input type="date" v-model="birth">
+        </div>
+        <div>
+            <label>입사월일</label>
+            <input type="date" v-model="startDate">
+        </div>
+        <div>
+            <label>나이</label>
+            <input type="number" v-model="age">
+        </div>
+        <!--        <div>-->
+        <!--            <label>5월</label>-->
+        <!--            <input type="number" v-model="may">-->
+        <!--        </div>-->
+        <div>
+            <button @click="setModiRow">폼입력하여 수정</button>
+        </div>
     </div>
 </template>
 <script>
@@ -78,21 +55,13 @@ export default {
         return {
             gridJson: dataJson.gridJson,
             grid1columns: dataJson.grid1columns,
-            divide: "0",
-            sortChk: "",
-            item: "",
-            jan: "",
-            feb: "",
-            mar: "",
-            apr: "",
-            may: "",
-            jun: "",
-            jul: "",
-            aug: "",
-            sep: "",
-            oct: "",
-            nov: "",
-            dec: "",
+            divide:"0",
+            name:"",
+            phone:"",
+            rank:"",
+            birth:"",
+            startDate:"",
+            age:"",
 
         }
     },
@@ -112,42 +81,26 @@ export default {
                 alert("행을 선택해 주세요")
             }else {
                 // 데이터 바인딩
-                this.divide = this.gridJson[nRow - 1].col0;
-                this.sortChk = this.gridJson[nRow - 1].col1;
-                this.item = this.gridJson[nRow - 1].col2;
-                this.jan = this.gridJson[nRow - 1].col3;
-                this.feb = this.gridJson[nRow - 1].col4;
-                this.mar = this.gridJson[nRow - 1].col5;
-                this.apr = this.gridJson[nRow - 1].col6;
-                this.may = this.gridJson[nRow - 1].col7;
-                this.jun = this.gridJson[nRow - 1].col8;
-                this.jul = this.gridJson[nRow - 1].col9;
-                this.aug = this.gridJson[nRow - 1].col10;
-                this.sep = this.gridJson[nRow - 1].col11;
-                this.oct = this.gridJson[nRow - 1].col12;
-                this.nov = this.gridJson[nRow - 1].col13;
-                this.dec = this.gridJson[nRow - 1].col14;
+                this.divide = this.gridJson[nRow - 1].divide;
+                this.name = this.gridJson[nRow - 1].name;
+                this.phone = this.gridJson[nRow - 1].phone;
+                this.birth = this.gridJson[nRow - 1].birth;
+                this.startDate = this.gridJson[nRow - 1].startDate;
+                this.rank = this.gridJson[nRow - 1].rank;
+                this.age = this.gridJson[nRow - 1].age;
             }
         },
         setModiRow(){
             const gridList  = window._SBGrid.getGrid("dataGrid");
             const nRow = gridList.getRow();
             const data ={
-                "col0": this.divide,
-                "col1": this.sortChk,
-                "col2": this.item,
-                "col3": this.jan,
-                "col4": this.feb,
-                "col5": this.mar,
-                "col6": this.apr,
-                "col7": this.may,
-                "col8": this.jun,
-                "col9": this.jul,
-                "col10":this.aug ,
-                "col11":this.sep ,
-                "col12":this.oct ,
-                "col13":this.nov ,
-                "col14":this.dec ,
+                "divide": this.divide,
+                "name": this.name,
+                "phone": this.phone,
+                "birth": this.birth,
+                "startDate": this.startDate,
+                "rank": this.rank,
+                "age": this.age,
             }
             if(nRow <0){
                 alert("행을 선택해 주세요")

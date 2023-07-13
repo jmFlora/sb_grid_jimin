@@ -56,7 +56,7 @@
                   saveorgdata: true
                  }"
         ></SBGrid>
-<!--        <div :id="parentid"></div>-->
+
     </div>
 </template>
 
@@ -74,10 +74,13 @@ export default {
         SBGrid // 불러온 SBGrid 컴포넌트를 TotalGrid.vue에서 사용할 수 있도록 등록합니다.
     },
     mounted() {
+
         this.$nextTick(function() { // mounted 시점에 SBGrid 컴포넌트에 메소드를 사용할 경우 nextTick 함수 안에서 코드를 작성해야 합니다.
             const gridList  = window._SBGrid.getGrid("dataGrid");
             gridList.getJsonRef(); // 해당 SBGrid 컴포넌트의 Json Ref 정보를 반환
-
+            gridList.setMergeCells('bycol');
+            const chkRows = gridList.getCheckRows(2);
+            console.log(chkRows)
         });
     },
     methods:{
@@ -132,6 +135,11 @@ export default {
                 const gridList  = window._SBGrid.getGrid("dataGrid");
                 gridList.setTotal(objTotal); // 위 objTotal 객체 값으로 그리드를 Total화함.
             }
+        },
+        checkRow(){
+            const gridList  = window._SBGrid.getGrid("dataGrid");
+            const chkRows = gridList.getCheckRows(2);
+            console.log(chkRows)
         }
     }
 }
