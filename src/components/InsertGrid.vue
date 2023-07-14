@@ -85,9 +85,9 @@ import dataJson from '/json/dataJson.json'
                   "age": this.age,
               };
               this.gridJson.push(data);
-              gridList.removeRowStatus(15)
-              // gridList.addRow();
-              // gridList.removeRow();
+              // gridList.removeRowStatus(15)
+              gridList.addRow();
+              gridList.removeRow();
           },
       }
   }

@@ -47,6 +47,13 @@
           ref="grid"
           :data="gridJson"
           :columns="totalColumn"
+          :gridattr="{
+                  rowheihgt: '26',
+                  rowheader: 'seq',
+                  selectmode:'free',
+                  saveorgdata: true,
+                  paging:{'type':'all', 'count': 5, 'size':12}
+                 }"
         ></SBGrid>
         </div>
 </template>
@@ -72,10 +79,16 @@ export default {
             gridList.setMergeCells('bycol');
             this.mouseMove();
             this.checkRow();
+            // this.fbCalcSum()
         });
     },
     methods:{
-
+        //합계셀 만들기
+        fbCalcSum(nRow){
+            const gridList  = window._SBGrid.getGrid("dataGrid");
+            const jan = Number(gridList.getData(Number(nRow), gridList.getColfRef("col3")))
+            console.log(jan)
+        },
         //선택한 행 삭제
         deleteRow(){
            const gridList  = window._SBGrid.getGrid("secondGrid");
@@ -94,7 +107,7 @@ export default {
                 gridList.clearTotal();
             }else{
                 let objTotal = {
-                    type        : 'subgrand', // subgrand : 소계 및 합계  / sub : 소계  / grand : 합계
+                    type        : 'sub', // sub : 소계 및 합계  / sub : 소계  / grand : 합계
                     position    : value,  //  나타날 위치를 설정하는데 option 값으로 position이 정해짐  (top : 상단정렬 / bottom : 하단정렬)
                     standardvaluechange : true, // 합계 행의 기준 컬럼의 데이터를 기준 데이터로 변경할지 말지 여부 설정
                     columns     : {

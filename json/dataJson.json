@@ -173,32 +173,39 @@
     {
       "col0": "아이디벨",
       "col1": "BE팀",
-      "col2": "0",
-      "col3": "1",
-      "col4": "2",
-      "col5": "3",
-      "col6": "4",
-      "col7": "5"
+      "col2": "6",
+      "col3": "6",
+      "col4": "5",
+      "col5": "5",
+      "col6": "6",
+      "col7": "7",
+      "col8": "7",
+      "col9": "6"
     },
     {
       "col0": "아이디벨",
       "col1": "FE팀",
-      "col2": "0",
-      "col3": "1",
-      "col4": "2",
-      "col5": "3",
-      "col6": "4",
-      "col7": "5"
+      "col2": "6",
+      "col3": "6",
+      "col4": "6",
+      "col5": "7",
+      "col6": "8",
+      "col7": "8",
+      "col8": "8",
+      "col9": "10"
     },
     {
       "col0": "아이디벨",
       "col1": "DX팀",
       "col2": "0",
-      "col3": "1",
-      "col4": "2",
-      "col5": "3",
-      "col6": "4",
-      "col7": "5"
+      "col3": "0",
+      "col4": "0",
+      "col5": "0",
+      "col6": "0",
+      "col7": "0",
+      "col8": "3",
+      "col9": "3"
+
     }
   ],
   "sumColumn":  [
@@ -208,9 +215,7 @@
     {"caption" : ["2월"],     "ref" : "col4",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
     {"caption" : ["3월"],     "ref" : "col5",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
     {"caption" : ["4월"],     "ref" : "col6",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
-    {"caption" : ["5월"],     "ref" : "col7",    "width" : "100px",        "style" : "text-align:right",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
-    {"caption" : ["6월"],     "ref" : "col8",    "width" : "100px",        "style" : "text-align:right",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
-    {"caption" : ["7월"],     "ref" : "col9",    "width" : "100px",        "style" : "text-align:right",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false}
-
-  ]
+    {"caption" : ["5월"],     "ref" : "col7",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
+    {"caption" : ["6월"],     "ref" : "col8",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
+    {"caption" : ["7월"],     "ref" : "col9",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false}]
 }
