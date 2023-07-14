@@ -36,20 +36,20 @@ export default {
              * 만약 SBGrid 속성 설정 시 columns 값을 입력하지 않으면 || 이후의 값으로 컬럼이 생성됩니다.
              */
             columns: this.columns || [
-                {
-                    caption : ['col1'],	// 캡션명을 'col1'으로 설정합니다.
-                    ref : 'selectHeader_col1', // 해당 열의 ref값을 'selectHeader_col1'으로 설정합니다.
-                    width : '200px', // 해당 열의 너비를 200px으로 설정합니다.
-                    style : 'text-align:center', // 해당 열의 style을 설정합니다.
-                    type : 'input', // 해당 열의 타입을 input으로 설정합니다.
-                },
-                {
-                    caption : ['col2'],
-                    ref : 'selectHeader_col2',
-                    width : '200px',
-                    style : 'text-align:center',
-                    type : 'input',
-                },
+                // {
+                //     caption : ['col1'],	// 캡션명을 'col1'으로 설정합니다.
+                //     ref : 'selectHeader_col1', // 해당 열의 ref값을 'selectHeader_col1'으로 설정합니다.
+                //     width : '200px', // 해당 열의 너비를 200px으로 설정합니다.
+                //     style : 'text-align:center', // 해당 열의 style을 설정합니다.
+                //     type : 'combo', // 해당 열의 타입을 input으로 설정합니다.
+                // },
+                // {
+                //     caption : ['col2'],
+                //     ref : 'selectHeader_col2',
+                //     width : '200px',
+                //     style : 'text-align:center',
+                //     type : 'input',
+                // },
 
             ],
 
@@ -58,7 +58,8 @@ export default {
              * 만약 SBGrid 컴포넌트 속성인 jsonref의 값을 입력하지 않으면 빈 배열로 할당됩니다.
              */
             jsonref: this.data || [],
-            mergecellsfixedrows : 'bycolrec',
+            // mergecellsfixedrows : 'bycolrec',
+            showselectedcellsinfo : ["count","sum","avg"]
         })
         if(this.bind != null) { // SBGrid 속성 설정 중, bind 라는 속성의 값이 null이 아닐 경우, 본 컴포넌트에 이벤트를 할당합니다.
             for(let i = 0 ; i < Object.keys(this.bind).length; i++){ // 할당할 이벤트의 Key의 개수만큼 for문을 돌려 SBGrid 컴포넌트에 할당합니다.
@@ -81,4 +82,8 @@ export default {
 </script>
 
 <style>
+.gridForm{
+    margin: 0 auto;
+    padding: 20px;
+}
 </style>

@@ -29,6 +29,16 @@
       "startDate": "2023-02-23",
       "rank": "프로",
       "age": "26"
+    },
+    {
+      "check": "false",
+      "divide": "BE팀",
+      "name": "이주민",
+      "phone": "010-9034-3058",
+      "birth": "1992-10-09",
+      "startDate": "2023-09-23",
+      "rank": "파트장",
+      "age": "30"
     }
   ],
   "grid1columns": [
@@ -65,26 +75,10 @@
           }
         ],
         "label": "label",
-        "value": "value"
+        "value": "value",
+        "oneclickedit": true,
+        "displayui": true
       }
-    },
-    {
-      "caption": [
-        "성명"
-      ],
-      "ref": "name",
-      "width": "163px",
-      "style": "text-align:center",
-      "type": "output"
-    },
-    {
-      "caption": [
-        "전화번호"
-      ],
-      "ref": "phone",
-      "width": "120px",
-      "style": "text-align:center",
-      "type": "input"
     },
     {
       "caption": [
@@ -110,9 +104,30 @@
           }
         ],
         "label": "label",
-        "value": "value"
+        "value": "value",
+        "oneclickedit": true,
+        "displayui": true
       }
     },
+    {
+      "caption": [
+        "성명"
+      ],
+      "ref": "name",
+      "width": "163px",
+      "style": "text-align:center",
+      "type": "output"
+    },
+    {
+      "caption": [
+        "전화번호"
+      ],
+      "ref": "phone",
+      "width": "120px",
+      "style": "text-align:center",
+      "type": "input"
+    },
+
     {
       "caption": [
         "생년월일"
@@ -123,8 +138,8 @@
       "type": "datepicker",
       "typeinfo": {
         "dateformat": "yy-mm-dd",
-        "displayui": "true",
-        "oneclickedit": "true"
+        "displayui": true,
+        "oneclickedit": true
       }
     },
     {
@@ -137,8 +152,8 @@
       "type": "datepicker",
       "typeinfo": {
         "dateformat": "yy-mm-dd",
-        "displayui": "true",
-        "oneclickedit": "true"
+        "displayui": true,
+        "oneclickedit": true
       }
     },
     {
@@ -154,22 +169,48 @@
       }
     }
   ],
-
-  "comboData": [
+  "sumData": [
     {
-      "label": "팀장",
-      "value": "팀장"
+      "col0": "아이디벨",
+      "col1": "BE팀",
+      "col2": "0",
+      "col3": "1",
+      "col4": "2",
+      "col5": "3",
+      "col6": "4",
+      "col7": "5"
     },
     {
-      "label": "파트장",
-      "value": "파트장"
+      "col0": "아이디벨",
+      "col1": "FE팀",
+      "col2": "0",
+      "col3": "1",
+      "col4": "2",
+      "col5": "3",
+      "col6": "4",
+      "col7": "5"
     },
     {
-      "label": "프로",
-      "value": "프로"
+      "col0": "아이디벨",
+      "col1": "DX팀",
+      "col2": "0",
+      "col3": "1",
+      "col4": "2",
+      "col5": "3",
+      "col6": "4",
+      "col7": "5"
     }
+  ],
+  "sumColumn":  [
+    {"caption" : ["구분"],    "ref" : "col0",    "width" : "100px",        "style" : "text-align:center", "type" : "input"},
+    {"caption" : ["분류"],    "ref" : "col1",    "width" : "100px",        "style" : "text-align:center", "type" : "input"},
+    {"caption" : ["1월"],     "ref" : "col3",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
+    {"caption" : ["2월"],     "ref" : "col4",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
+    {"caption" : ["3월"],     "ref" : "col5",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
+    {"caption" : ["4월"],     "ref" : "col6",    "width" : "100px",        "style" : "text-align:center",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
+    {"caption" : ["5월"],     "ref" : "col7",    "width" : "100px",        "style" : "text-align:right",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
+    {"caption" : ["6월"],     "ref" : "col8",    "width" : "100px",        "style" : "text-align:right",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false},
+    {"caption" : ["7월"],     "ref" : "col9",    "width" : "100px",        "style" : "text-align:right",  "type" : "input",    "format" : { "type":"number", "rule":"#,##0" },"merge":false}
+
   ]
 }
-
-
-

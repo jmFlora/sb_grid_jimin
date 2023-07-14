@@ -38,10 +38,6 @@
             <label>나이</label>
             <input type="number" v-model="age">
         </div>
-<!--        <div>-->
-<!--            <label>5월</label>-->
-<!--            <input type="number" v-model="may">-->
-<!--        </div>-->
         <div>
             <button @click="setRow">폼입력하여 등록</button>
         </div>
@@ -98,4 +94,46 @@ import dataJson from '/json/dataJson.json'
 </script>
 
 <style scoped>
+.writeForm {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.writeForm h3 {
+    margin-top: 0;
+}
+
+.writeForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.writeForm select,
+.writeForm input[type="text"],
+.writeForm input[type="date"],
+.writeForm input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.writeForm button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.writeForm button:hover {
+    background-color: #45a049;
+}
 </style>

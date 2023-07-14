@@ -112,4 +112,46 @@ export default {
 }
 </script>
 <style>
+.modifyForm {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.modifyForm h3 {
+    margin-top: 0;
+}
+
+.modifyForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modifyForm select,
+.modifyForm input[type="text"],
+.modifyForm input[type="date"],
+.modifyForm input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.modifyForm button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modifyForm button:hover {
+    background-color: #45a049;
+}
 </style>
