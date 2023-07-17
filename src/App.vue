@@ -1,6 +1,10 @@
 <template>
     <div>
-        <IdevelList></IdevelList>
+        <div class="button-container">
+            <IdevelList></IdevelList>
+            <button @click="excelData">엑셀 다운로드</button>
+            <input type="file" @change="excelUpload">
+        </div>
         <div class="button-container">
             <button @click="editForm" style="margin-right: 10px" >등록</button>
             <button @click="editForm">수정</button>
@@ -42,6 +46,14 @@ export default {
     methods:{
         editForm(){
             this.regi = !this.regi
+        },
+        excelData(){
+            const gridList  = window._SBGrid.getGrid("dataGrid");
+            gridList.exportData("json", "fileName", true, )
+        },
+        excelUpload(e){
+            const gridList = window._SBGrid.getGrid("dataGrid");
+            gridList.importExcelData(e);
         }
     }
 }
@@ -62,6 +74,14 @@ export default {
     border-radius: 4px;
     cursor: pointer;
 }
+/*.button-container input {*/
+/*    background-color: #4CAF50;*/
+/*    color: white;*/
+/*    padding: 10px 16px;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .button-container button:hover {
     background-color: #45a049;

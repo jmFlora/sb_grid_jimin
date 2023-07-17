@@ -59,7 +59,7 @@ export default {
              */
             jsonref: this.data || [],
             // mergecellsfixedrows : 'bycolrec',
-            showselectedcellsinfo : ["count","sum","avg"]
+            // showselectedcellsinfo : ["count","sum","avg"]
         })
         if(this.bind != null) { // SBGrid 속성 설정 중, bind 라는 속성의 값이 null이 아닐 경우, 본 컴포넌트에 이벤트를 할당합니다.
             for(let i = 0 ; i < Object.keys(this.bind).length; i++){ // 할당할 이벤트의 Key의 개수만큼 for문을 돌려 SBGrid 컴포넌트에 할당합니다.

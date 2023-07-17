@@ -52,7 +52,8 @@
                   rowheader: 'seq',
                   selectmode:'free',
                   saveorgdata: true,
-                  paging:{'type':'all', 'count': 5, 'size':12}
+                  paging:{'type':'all', 'count': 5, 'size':12},
+                  showselectedcellsinfo:['count','sum','avg']
                  }"
         ></SBGrid>
         </div>
@@ -61,6 +62,7 @@
 <script>
 import SBGrid from './SBGrid.vue' // SBGrid 컴포넌트를 불러옵니다.
 import dataJson from '/json/dataJson.json'
+
 export default {
     data: function() {
         return {
@@ -74,12 +76,12 @@ export default {
     mounted() {
 
         this.$nextTick(function() { // mounted 시점에 SBGrid 컴포넌트에 메소드를 사용할 경우 nextTick 함수 안에서 코드를 작성해야 합니다.
-            const gridList  = window._SBGrid.getGrid("dataGrid");
+            const gridList  = window._SBGrid.getGrid("secondGrid");
             gridList.getJsonRef(); // 해당 SBGrid 컴포넌트의 Json Ref 정보를 반환
             gridList.setMergeCells('bycol');
-            this.mouseMove();
-            this.checkRow();
-            // this.fbCalcSum()
+            // this.mouseMove();
+            // this.checkRow();
+            this.fbCalcSum()
         });
     },
     methods:{
@@ -142,19 +144,19 @@ export default {
         },
         checkRow(){
             const gridList  = window._SBGrid.getGrid("secondGrid");
-            const chkRows = gridList.getCheckedRows(2);
+            const chkRows = gridList.getCheckedRows(1);
             console.log(chkRows)
         },
-        mouseMove(){
-            const gridList  = window._SBGrid.getGrid("secondGrid");
-            console.log(gridList)
-            var nRow = gridList.getMouseRow();
-            if(nRow ==-1){
-                console.log("그리드에 마우스를 이동하여 마우스가 위치한 행을 확인해보세요.")
-            }else{
-                console.log('마우스가 위치한 행 : '+nRow)
-            }
-        }
+        // mouseMove(){
+        //     const gridList  = window._SBGrid.getGrid("secondGrid");
+        //     console.log(gridList)
+        //     var nRow = gridList.getMouseRow();
+        //     if(nRow ==-1){
+        //         console.log("그리드에 마우스를 이동하여 마우스가 위치한 행을 확인해보세요.")
+        //     }else{
+        //         console.log('마우스가 위치한 행 : '+nRow)
+        //     }
+        // }
     }
 }
 </script>
