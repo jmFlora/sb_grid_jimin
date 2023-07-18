@@ -8,10 +8,16 @@
             <option value="top">상단</option>
             <option value="bottom">하단</option>
         </select>
-<!--        <div>-->
-<!--            <button @click="deleteRow">선택한행 삭제</button>-->
-<!--            <button @click="removeRow">마지막행 삭제</button>-->
-<!--        </div>-->
+            <div>
+                <button @click="nodeInsert">node추가</button>
+                <button @click="nodeDelete">node삭제</button>
+                <button @click="nodeOpen">node tree 펼치기</button>
+                <button @click="nodeClose">node tree 닫기</button>
+            </div>
+        <div>
+            <button @click="deleteRow">선택한행 삭제</button>
+            <button @click="removeRow">마지막행 삭제</button>
+        </div>
         <!--
            ■■■■■ SBGrid 속성 안내 ■■■■■
              id              입력한 값이 그리드 엘리먼트(<div>)의 id 값으로 사용됩니다. (필수)
@@ -43,19 +49,26 @@
 
         <SBGrid
           id="secondGrid"
-          style="width: 100%; height: 550px"
-          ref="grid"
+          style="width: 990px; height: 550px"
+          ref="secondGrid"
           :data="gridJson"
           :columns="totalColumn"
           :gridattr="{
-                  rowheihgt: '26',
+                  rowheigt: '26',
                   rowheader: 'seq',
                   selectmode:'free',
                   saveorgdata: true,
-                  paging:{'type':'all', 'count': 5, 'size':12},
-                  showselectedcellsinfo:['count','sum','avg']
+                  showselectedcellsinfo:['count','sum','avg'],
+                  // tree:{
+                  //      col: 0,
+                  //      levelref: 'level',
+                  //      open: true,
+                  //      lock: true
+                  // },
+                  extendcol: 2
                  }"
         ></SBGrid>
+
         </div>
 </template>
 
@@ -76,24 +89,26 @@ export default {
     mounted() {
 
         this.$nextTick(function() { // mounted 시점에 SBGrid 컴포넌트에 메소드를 사용할 경우 nextTick 함수 안에서 코드를 작성해야 합니다.
-            const gridList  = window._SBGrid.getGrid("secondGrid");
+            const gridList  = this.$refs.secondGrid.gridObject;
             gridList.getJsonRef(); // 해당 SBGrid 컴포넌트의 Json Ref 정보를 반환
             gridList.setMergeCells('bycol');
+            // gridList.width ='700px'
             // this.mouseMove();
             // this.checkRow();
-            this.fbCalcSum()
+            // this.fbCalcSum()
         });
     },
     methods:{
-        //합계셀 만들기
-        fbCalcSum(nRow){
-            const gridList  = window._SBGrid.getGrid("dataGrid");
-            const jan = Number(gridList.getData(Number(nRow), gridList.getColfRef("col3")))
-            console.log(jan)
-        },
+        // //합계셀 만들기
+        // fbCalcSum(nRow){
+        //     const gridList  = window._SBGrid.getGrid("dataGrid");
+        //     const jan = Number(gridList.getData(Number(nRow), gridList.getColfRef("col9")))
+        //     console.log(jan)
+        // },
         //선택한 행 삭제
         deleteRow(){
-           const gridList  = window._SBGrid.getGrid("secondGrid");
+           // const gridList  = window._SBGrid.getGrid("secondGrid");
+            const gridList  = this.$refs.secondGrid.gridObject;
             if(gridList.getRow()){
                gridList.deleteRow(gridList.getRow())
            }
@@ -157,6 +172,30 @@ export default {
         //         console.log('마우스가 위치한 행 : '+nRow)
         //     }
         // }
+        nodeInsert(){
+            const gridList  = window._SBGrid.getGrid("secondGrid");
+            gridList.insertRow(2, 'below', {"level":2, "col1":"유관기관"}, false);
+            gridList.insertRow(3, 'below', {"level":3, "col1":"한국수출입은행", "col2":3, "col3":4, "col4":5}, false);
+            gridList.insertRow(4, 'below', {"level":4, "col1":"한국조폐공사", "col2":4, "col3":1, "col4":0,"col5":0}, false);
+            gridList.setRow(3)
+        },
+        nodeDelete(){
+            const gridList  = window._SBGrid.getGrid("secondGrid");
+            //해당하는 노드의 row를 삭제해주면된다.(하드코딩이 아닌 해당하는 row를 변수값으로 넣어두면 된다)
+            gridList.deleteRow(6);
+            gridList.deleteRow(5);
+            gridList.deleteRow(4);
+            gridList.deleteRow(3);
+        },
+        nodeOpen(){
+            const gridList  = window._SBGrid.getGrid("secondGrid");
+            console.log(gridList.openTreeNodeAll)
+            gridList.openTreeNodeAll();
+        },
+        nodeClose(){
+            const gridList  = window._SBGrid.getGrid("secondGrid");
+            gridList.closeTreeNodeAll();
+        }
     }
 }
 </script>
